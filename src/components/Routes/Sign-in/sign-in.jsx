@@ -1,20 +1,25 @@
-import { signInWithGooglePopup, createUserDocumentFromAuth } from '../../../utils/Firebase/firebase.util'
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-unused-vars */
+import {
+  signInWithGooglePopup,
+  createUserDocumentFromAuth,
+} from '../../../utils/Firebase/firebase.util';
 
+import SignUp from '../Sign-up/sign-up-form';
 
 function SignIn() {
+  const logGoogleUser = async () => {
+    const { user } = await signInWithGooglePopup();
+    const userDocRef = await createUserDocumentFromAuth(user);
+  };
 
-    const logGoogleUser = async () => {
-        const { user } = await signInWithGooglePopup();
-        const userDocRef = await createUserDocumentFromAuth(user)
-    }
-
-    return (
-        <div>
-            <h1>Sign Page</h1>
-            <button onClick={logGoogleUser}> Sign In with Google</button>
-        </div>
-
-    );
+  return (
+    <div>
+      <h1>Sign Page</h1>
+      <button onClick={logGoogleUser}> Sign In with Google</button>
+      <SignUp />
+    </div>
+  );
 }
 
 export default SignIn;
