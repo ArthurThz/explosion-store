@@ -1,11 +1,15 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState } from 'react';
+import './sign-up-form.styles.scss';
+
 import FormInput from '../../Form-input/form-input';
 import {
   createAuthWithUserEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../../utils/Firebase/firebase.util';
+
+import Button from '../../Button/Button';
 const defaultFormFields = {
   displayName: '',
   email: '',
@@ -47,8 +51,9 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h1>Sign Up with you Email and password</h1>
+    <div className="sign-up-container">
+      <h2>Don't have an account?</h2>
+      <span>Sign Up with you Email and password</span>
       <form onSubmit={submitHandler}>
         <FormInput
           label="Display Name"
@@ -86,7 +91,7 @@ function SignUp() {
           value={confirmPassword}
         />
 
-        <button type="submit">Submit</button>
+        <Button type="submit">Sign in</Button>
       </form>
     </div>
   );
