@@ -18,11 +18,11 @@ const defaultFormFields = {
 };
 
 function SignUp() {
-  const [formFiedls, setformFiedls] = useState(defaultFormFields);
-  const { displayName, email, password, confirmPassword } = formFiedls;
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
 
   const resetFormFields = () => {
-    setformFiedls(defaultFormFields);
+    setFormFields(defaultFormFields);
   };
   const submitHandler = async (event) => {
     event.preventDefault();
@@ -47,7 +47,7 @@ function SignUp() {
 
   const eventHandler = (event) => {
     const { name, value } = event.target;
-    setformFiedls({ ...formFiedls, [name]: value });
+    setFormFields({ ...formFields, [name]: value });
   };
 
   return (
